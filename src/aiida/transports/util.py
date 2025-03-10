@@ -110,6 +110,7 @@ async def copy_from_remote_to_remote_async(
     """
     await transportsource.copy_from_remote_to_remote(transportdestination, remotesource, remotedestination, **kwargs)
 
+
 def _compress_zip(source, dest, **kwargs):
     """Compress a directory into a ZIP archive."""
     with zipfile.ZipFile(dest, 'w', zipfile.ZIP_DEFLATED) as zipf:
@@ -136,7 +137,7 @@ def compress(transport, source, dest, format='tar', **kwargs):
     if format == 'zip':
         _compress_zip(source, dest, **kwargs)
     else:
-        raise ValueError(f"Unsupported compression format: {format}")
+        raise ValueError(f'Unsupported compression format: {format}')
 
 
 def extract(transport, source, dest, format='tar', **kwargs):
@@ -144,4 +145,4 @@ def extract(transport, source, dest, format='tar', **kwargs):
     if format == 'zip':
         _extract_zip(source, dest, **kwargs)
     else:
-        raise ValueError(f"Unsupported extraction format: {format}")
+        raise ValueError(f'Unsupported extraction format: {format}')
